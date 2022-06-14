@@ -1,6 +1,6 @@
-namespace Catalog.Entities
+namespace Catalog.Dtos
 {
-    public record Item
+    public record ItemDto
     {
         public Guid Id { get; init; } //init-only property - Setting value only when instantiation - immutable property    
         public string Name { get; init; }        

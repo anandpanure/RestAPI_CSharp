@@ -3,7 +3,9 @@ using Catalog.Entities;
 using System.Linq;
 
 namespace Catalog.Repositories{
-    public class InMemItemsRepository
+
+
+    public class InMemItemsRepository : IItemsRepository
     {
         private readonly List<Item> items = new() //Target-types new Expression
         {
