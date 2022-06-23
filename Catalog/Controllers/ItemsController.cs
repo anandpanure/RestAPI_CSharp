@@ -77,7 +77,7 @@ namespace Catalog.Controllers
         [HttpDelete]
         public ActionResult DeleteItem(Guid id)
         {
-                        var existingItem = repository.GetItem(id);
+            var existingItem = repository.GetItem(id);
 
             if(existingItem is null){
                 return NotFound();

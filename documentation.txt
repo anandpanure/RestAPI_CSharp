@@ -1,1 +1,7 @@
+Installation 
+
+//Mongo DB Setup
+Insatll MongoDB for VS Code extension
 dotnet add package MongoDB.Driver
+docker run -d --rm --name mongo -p 27017:27017 -v mongodbdata:/data/db mongo
+docker ps
