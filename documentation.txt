@@ -4,4 +4,13 @@ Installation
 Insatll MongoDB for VS Code extension
 dotnet add package MongoDB.Driver
 docker run -d --rm --name mongo -p 27017:27017 -v mongodbdata:/data/db mongo
+docker run -d --rm --name mongo -p 27017:27017 -v mongodbdata:/data/db -e MONGO_INITDB_ROOT_USERNAME=mongoadmin -e MONGO_INITDB_ROOT_PASSWORD=Pass#word1 mongo
 docker ps
+
+
+.Net Secrets Manager
+dotnet user-secrets init
+dotnet user-secrets set MongoDbSettings:Password Pass#word1
+
+Health checks Nuget
+dotnet add package AspNetCore.HealthChecks.MongoDb
