@@ -14,3 +14,29 @@ dotnet user-secrets set MongoDbSettings:Password Pass#word1
 
 Health checks Nuget
 dotnet add package AspNetCore.HealthChecks.MongoDb
+
+Docker
+
+docker build -t catalog:v1 .
+docker network create net6catalog
+docker network ls
+docker run -d --rm --name mongo -p 27017:27017 -v mongodbdata:/data/db -e MONGO_INITDB_ROOT_USERNAME=mongoadmin -e MONGO_INITDB_ROOT_PASSWORD=Pass#word1 --network=net6catalog mongo
+docker run -it --rm -p 8090:80 -e MongoDbSettings:Host=mongo -e MongoDbSettings:Password=Pass#word1 --network=net6catalog catalog:v1
+
+
+pushing it to docker hub
+docker login
+docker tag catalog:v1 ananddevvv/catalog:v1
+docker push ananddevvv/catalog:v1
+
+docker rmi catalog:v1 //remove images from local
+
+docker logout
+
+docker run -it --rm -p 8090:80 -e MongoDbSettings:Host=mongo -e MongoDbSettings:Password=Pass#word1 --network=net6catalog ananddevvv/catalog:v1
+
+Container Orchestration - Kubernetes
+
+Control plane- brain of kubernetes
+
+
