@@ -35,8 +35,29 @@ docker logout
 
 docker run -it --rm -p 8090:80 -e MongoDbSettings:Host=mongo -e MongoDbSettings:Password=Pass#word1 --network=net6catalog ananddevvv/catalog:v1
 
+
+
 Container Orchestration - Kubernetes
 
 Control plane- brain of kubernetes
+
+kubectl config current-context
+Install kubernetes exension in vscode
+
+
+Kubernetes Setup
+kubectl config current-context
+kubectl create secret generic catalog-secrets --from-literal= mongodb-password='Pass#word1'
+cd .\kubernetes\
+kubectl apply -f .\catalog.yaml
+kubectl get deployments
+kubectl get pods
+kubectl logs catalog-deployment-6754476cd4-rlbb6 
+
+Create Configurat file mongodb.yaml
+use deployment StatefulSet Snippet of vscode
+kubectl apply -f .\mongodb.yaml
+kubectl get statefulsets
+
 
 
